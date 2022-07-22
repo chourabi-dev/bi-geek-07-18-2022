@@ -1,0 +1,123 @@
+/*
+
+
+selector {
+    key: value;
+    key: value;
+    ...
+
+    color: red;
+}
+
+
+*/
+
+/**********************************/
+
+
+
+
+#my_title {
+    color: red;
+}
+
+/* all the h1 tags will have a yellow color */
+
+h1 {
+    color: yellow;
+}
+
+h1 {
+    color: blue;
+}
+
+ 
+#my_title {
+    color: orange;
+}
+
+
+
+.custom_title{
+    font-size: 40px;
+    color: brown !important;
+}
+
+
+.custom_title_color{ 
+    color: green !important;
+}
+
+
+#para{
+    color: #6a6a6a;
+    font-size: 22px;
+    /* font-family: sans-serif; */
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
+    /* text-transform: uppercase; */
+    text-align: center;
+    text-decoration: underline;
+    line-height: 66px;
+    letter-spacing: 13px;
+}
+
+
+.banner{
+    border: 1px solid #ff9800;
+    padding: 20px 23px 21px 17px;
+    padding: 39px 36px;
+    padding-left: 25px;
+    padding: 25px;
+    border-radius: 7px;
+    background-color: #ffc107;
+}
+
+.banner > .title{
+    font-size: 32px;
+    font-family: sans-serif;
+    margin-bottom: 20px;
+}
+
+.banner > .into{
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.banner > .actions-btns > .btn{
+    border: 0;
+    padding: 10px 54px;
+    border-radius: 20px;
+    background-color: #cc8400;
+    color: white;
+   
+}
+
+.banner > .actions-btns > .btn:first-child{ 
+    margin-right: 18px;
+}
+
+.table{
+    width: 100%;
+    border-spacing: 0;
+}
+
+.table td{
+    padding: 10px 32px;
+    
+    border-bottom: 1px solid rgb(155, 155, 155);
+}
+
+.table tr:last-child > td{
+    border: 0;
+}
+
+.table th{
+    background-color: blue;
+    color: white;
+    padding: 10px 32px;
+}
+
+.table tr:nth-child(2n +1){
+    background-color: rgb(242 242 242);
+}
