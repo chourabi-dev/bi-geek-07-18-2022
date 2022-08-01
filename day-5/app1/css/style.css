@@ -1,0 +1,69 @@
+.inline-items > div{
+    display: inline-block;
+    width: 80px;
+}
+
+
+.d-flex{
+    display: flex;
+}
+
+
+
+.parent{
+    width: 500px;
+    height: 250px;
+    border: 1px solid;
+}
+
+.child{
+    width: 80px;
+    height: 80px;
+    border: 1px solid;
+}
+
+
+
+
+ 
+
+.users-list{
+
+}
+
+.user{
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+    position: relative;
+    
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.user > img{
+    width: 100%;
+}
+
+.user > .status{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    background-color: rgb(225, 225, 225);
+    border-radius: 50%;
+    right: 1px;
+    top: 9px;
+    border: 6px solid white;
+}
+
+
+.back-to-top-block{
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: orange;
+    padding: 15px 35px;
+    border-radius: 30px;
+}
