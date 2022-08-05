@@ -61,3 +61,19 @@ body{
 .col-12{
     width: 100%;
 }
+
+
+/* appreil screen width <= 350px  */
+@media screen and ( max-width: 350px )  {
+    .col{
+        width: 100% !important;
+    }
+}
+
+
+/* appreil screen width >= 350px  et <= 750px */
+@media screen and ( min-width: 351px )  and ( max-width: 750px ) {
+    .col-4{
+        width: 100% !important;
+    }
+}
