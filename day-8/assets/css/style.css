@@ -1,0 +1,24 @@
+.app-logo{
+    width: 131px;
+    height: auto;
+}
+
+
+.footer{
+    padding: 30px;
+    background-color: #def5ff;
+}
+
+
+.socials > a > i{
+    font-size: 25px;
+    color: orange;
+    margin-right: 40px;
+
+}
+
+
+.socials > a {
+     
+    text-decoration: none;
+}
