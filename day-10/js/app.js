@@ -50,15 +50,25 @@ element.innerHTML = "<h1>bonjour</h1>"
  
  
 // function  // procedure
-/*function somme( x , y ){
+function somme( x , y ){
 
     let s = x + y; 
     return s; 
+}
+
+function multi( x , y ){
+
+    let r = x * y; 
+    return r; 
 }
   
 function calcul(){
     var inputOne = document.getElementById("input1");
     var inputTwo = document.getElementById("input2");
+    var opElement = document.getElementById('op');
+
+    const op = opElement.value ;
+
 
     var resElement = document.getElementById('res');
 
@@ -66,21 +76,25 @@ function calcul(){
     var x = Number(inputOne.value);
     var y = Number(inputTwo.value);
 
+    var res = 0;
 
-    var res = somme(x,y);
-
-
-    console.log(res);
+    if ( op == "+") {
+          res = somme(x,y);
+    } else if( op == "*" ) {
+          res = multi(x,y);
+    }
+    
+ 
 
 
     resElement.innerHTML="Result : "+res;
-}*/
+}
 
 
 
 
 
-
+/*
 
 var listElement = document.getElementById("list");
 var inputElement = document.getElementById("shoppinginput");
@@ -98,3 +112,4 @@ function ajouter(){
     }
 }
 
+*/
