@@ -1,0 +1,50 @@
+.switch{
+    width: 80px;
+    height: 30px;
+    background-color: lightgrey;
+    border-radius: 30px;
+    position: relative;
+}
+
+.switch > div{ 
+    height: 30px;
+    width: 30px;
+    background-color: grey;
+    border-radius: 50%;
+    box-shadow: 0px 4px 5px 1px #bababa;
+    position: absolute;
+    left: 0px;
+
+    transition: left 0.3s ease-in-out;
+}
+
+.switch.active > div{
+    left: 49px;
+    background-color: #82cb82;
+}
+
+.switch.active{ 
+    background-color: #4cba4c;
+} 
+
+
+
+/** mode dark */
+body{
+    margin: 0;
+
+}
+.app{
+    width: 100%;
+    min-height: 100vh;
+}
+
+.app.dark-mode{
+    background-color: black;
+    color: white;
+}
+
+.app.dark-mode > p{
+    color: white;
+}
+
