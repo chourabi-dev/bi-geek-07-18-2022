@@ -5,9 +5,30 @@ var displayMode = 0; // 0 grid 1 list
 var productListElement = document.getElementById('product-list-element');
 
 
+var keySearchElement = document.getElementById('key-search');
+var categorySearchElement = document.getElementById("category-search");
+
+
+ 
+
+var chosenPrice = document.getElementById('chosen-price');
+var priceRange = document.getElementById('price-range');
+
+
+
+
+
+var keySearchValue = '';
+var categoryID = 0;
+var price = 10000000000000000;
+
+
+
 var categories = [
     { id: 0, name:"Smart phone" },
     { id: 1, name:"Smart TV" },
+    { id: 2, name:"Other" },
+    
     
 ]
 
@@ -18,6 +39,35 @@ var productList = [
     { category:1, title:"Smart TV smasung", price:2400, photoURL:'https://www.samsungtunisie.tn/1658-large_default/televiseur-samsung-32-full-hd-smart-tv-32n5300-tunisie.jpg'  },
     
 ];
+
+
+
+
+priceRange.addEventListener('change',function(event){
+    const val = Number(event.target.value);
+
+    console.log(val);
+
+    // search for the max price
+    let max = 0;
+
+    productList.filter((p)=>p.category == categoryID).map((p)=>  {   if (p.price > max) { max = p.price }    } )
+
+    //  100 max
+    //  66  ?
+
+
+    let res = ( (val * max ) / 100)
+
+    console.log(res);
+
+    chosenPrice.innerHTML = res+'$';
+
+    price = res;
+
+
+    initView()
+})
 
 
 listViewElement.addEventListener("click",function(){
@@ -41,14 +91,72 @@ gridViewElement.addEventListener("click",function(){
 })
 
 
+
+
+keySearchElement.addEventListener('keyup',function(event){
+    const val = event.target.value;
+
+    keySearchValue = val;  
+    initView();
+    
+})
+
+categorySearchElement.addEventListener('change',function(event){
+    const val = event.target.value;
+
+    categoryID = val;
+    initView();
+
+})
+
+
+
+
+
+
+
+
+function initCategories(){
+
+    let blocHTML = '<option value="">veuillez choisir une catégorie</option>';
+
+
+    categories.map((c)=>{
+        blocHTML=blocHTML+'<option value="'+c.id+'">'+c.name+'</option>'
+    })
+
+
+    categorySearchElement.innerHTML= blocHTML;
  
+
+}
+
+
+initCategories();
 
 
 function initView(){
 
     let blocHTML = '';
 
-    productList.map((p)=>{
+    productList.filter((p)=>  
+    p.title.toLocaleLowerCase().indexOf(keySearchValue.toLocaleLowerCase() ) != -1 
+    
+    &&
+
+    p.category == categoryID
+
+
+    &&
+
+
+    p.price <= price
+
+
+    )
+    
+    
+    .map((p)=>{
         if ( displayMode == 0 ) {
             const productHTMLTMP = `<div class="col-sm-4 mb-3"> 
             <div class="card  ">
