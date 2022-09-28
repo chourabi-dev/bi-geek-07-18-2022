@@ -1,0 +1,77 @@
+.toggle-button{
+    height: 20px;
+    width: 70px;
+    background-color: #dedede;
+    border-radius: 30px;
+    margin: 10px;
+    position: relative;
+    
+}
+
+.toggle-button > div{
+  position: absolute;
+  left: 0;
+  border-radius: 30px;
+  height: 20px;
+  width: 20px;
+  background-color: grey;
+}
+
+.toggle-button.active { 
+  background-color: rgb(207 248 207);
+}
+
+
+
+.toggle-button.active > div{
+  left: 50px;
+  background-color: rgb(128, 227, 128);
+}
+
+/***************************************************************/
+
+/*
+<div>
+  <p></p>
+</div>
+
+
+div > p {
+  ...
+*/
+
+.chat-bottom-bar{
+  width: 250px;
+  position: fixed !important;
+  bottom: 0;
+  right: 0;
+}
+
+.bloc-chat{
+  height: 223px;
+  overflow-y: scroll;
+}
+
+.chat-block-response{
+  display: flex;
+}
+.message-bloc{
+  display: flex;
+  justify-content: end;
+  margin-bottom: 15px;
+}
+
+
+.message-bloc-pc{
+  display: flex;
+  justify-content: start;
+  margin-bottom: 15px;
+}
+
+
+.message{
+  background-color: #03a9f4;
+  color: white;
+  padding: 7px 20px;
+  border-radius: 30px;
+}
