@@ -17,3 +17,24 @@ npm i bootstrap
 
 // add routing
 npm i react-router-dom@5
+
+
+//*******************************************
+
+
+create  server  using Express
+https://expressjs.com/
+
+add developer tool nodemon
+
+npm i -g  nodemon
+
+
+
+// mongoDB
+
+https://www.mongodb.com/try/download/community
+
+
+// add mongo db to server
+npm i mongodb
