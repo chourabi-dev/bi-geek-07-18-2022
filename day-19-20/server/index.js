@@ -214,9 +214,168 @@ app.put('/products/update',(req,res)=>{
 
 
 // search !!!!
+app.get('/product/search',(req,res)=>{
+
+    
+
+    // 1 connect to mongodb
+
+    const MongoClient = require('mongodb').MongoClient;
+
+    MongoClient.connect("mongodb://localhost:27017").then( (dbServer)=>{
+
+    // 2 select the DATABASE to work on !!!!
+
+    const db = dbServer.db('productsbigeek');
+
+
+    let filter = {};
+
+
+    let params = url.parse( req.url ,true ).query;
+
+
+
+    if ( params.quantity != null ) {
+        filter.quantity =   { $lt: Number(params.quantity) }   ;
+    }
+
+
+    if ( params.price != null ) {
+        filter.price =   { $lt: Number(params.price) }   ;
+    }
+
+
+
+    if ( params.title != null ) {
+        filter.title =   params.title ;
+    }
+ 
+    db.collection('products').find(   filter   ).toArray().then( ( products )=>{
+        res.send(products);
+    } )
+
+
+
+    } ).catch( (error)=>{
+        res.send({ success:false, message:"error db" })
+    })
+
+})
+
+
+ 
 // updateMany
+
+app.put('/products/update-many',(req,res)=>{
+    let body = [];
+
+    req.on('data',(data)=>{
+        body.push(data);
+    }).on('end',()=>{
+
+        let product = JSON.parse(Buffer.concat(body).toString());
+
+   
+
+        // 1 connect to db
+        const MongoClient = require('mongodb').MongoClient;
+
+        MongoClient.connect("mongodb://localhost:27017").then( (dbServer)=>{
+    
+        // 2 select the DATABASE to work on !!!!
+    
+        const db = dbServer.db('productsbigeek');
+    
+        db.collection('products').updateMany( {  quantity : 10  } , { $set :   {   quantity: 20 , updateDate: new Date()  }   } ) .then(()=>{
+            res.send({ success:true })
+        }).catch( (error)=>{
+            res.send({ success:false, message:"error updating product" })
+        })
+     
+    
+        } ).catch( (error)=>{
+            res.send({ success:false, message:"error db" })
+        })
+         
+    })
+
+})
+
+
+
+
+
+
+
 // insertMany
+
+app.post('/products/add-many',(req,res)=>{
+    let body = [];
+
+    req.on('data',(data)=>{
+        body.push(data);
+    }).on('end',()=>{
+
+        let products = JSON.parse(Buffer.concat(body).toString());
+
+
+        // 1 connect to db
+        const MongoClient = require('mongodb').MongoClient;
+
+        MongoClient.connect("mongodb://localhost:27017").then( (dbServer)=>{
+    
+        // 2 select the DATABASE to work on !!!!
+    
+        const db = dbServer.db('productsbigeek');
+    
+        db.collection('products').insertMany(products).then(()=>{
+            res.send({ success:true })
+        }).catch( (error)=>{
+            res.send({ success:false, message:"error inserting product" })
+        })
+     
+    
+        } ).catch( (error)=>{
+            res.send({ success:false, message:"error db" })
+        })
+         
+    })
+
+})
+ 
+
 // deleteMany
+app.delete("/products/delete-many",(req,res)=>{
+
+    // 1 connect to mongodb
+
+    const MongoClient = require('mongodb').MongoClient;
+
+    MongoClient.connect("mongodb://localhost:27017").then( (dbServer)=>{
+
+    // 2 select the DATABASE to work on !!!!
+
+    const db = dbServer.db('productsbigeek');
+
+
+    const query = url.parse(req.url,true).query;
+
+    const id = query.id;
+
+    db.collection('products').deleteMany( {  quantity : 0  } ).then(()=>{
+        res.send({ success:true })
+    }).catch( (error)=>{
+        res.send({ success:false, message:"error deleting product" })
+    })
+ 
+
+    } ).catch( (error)=>{
+        res.send({ success:false, message:"error db" })
+    })
+
+
+})
 
 
 

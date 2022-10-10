@@ -1,0 +1,49 @@
+- clients               ADD   MODIFIER DELETE   LIST( recherche cin )
+    nom prenom
+    email
+    address
+    phone
+    cin
+   
+- Vehicule
+	mark
+	model
+	VIN
+	matricule
+	odometere
+	color  input type="color"
+	pf number
+
+
+- Intervention
+	type ( list )
+	date
+	time
+	descreption
+
+
+
+TEMPLATE link
+https://startbootstrap.com/theme/sb-admin-2
+
+
+
+
+1 - create react app
+
+2 - add router 
+
+3 - create pages
+
+
+
+
+4 create server ( express )
+
+5 create API
+
+
+6 test postman 
+
+
+7 
